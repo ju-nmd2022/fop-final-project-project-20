@@ -1,3 +1,23 @@
 * {
   font-family: sans-serif;
 }
+
+#catSitting {
+  width: 10%;
+  height: fit-content;
+}
+
+#catStanding {
+  width: 10%;
+  height: fit-content;
+}
+
+#catLaying {
+  width: 10%;
+  height: fit-content;
+}
+
+#mouse {
+  width: 5%;
+  height: fit-content;
+}

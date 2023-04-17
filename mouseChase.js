@@ -12,3 +12,5 @@ const mouse = document.getElementById("mouse");
 const mousetrap = document.getElementById("mousetrap");
 const magicPotion = document.detElementById("magicPotion");
 const cheeseBite = document.getElementById("cheeseBite");
+
+let gameActive = false;
