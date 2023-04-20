@@ -1,7 +1,9 @@
 <!-- Questions -->
 
-If we put the cats in an array we should be able
-to place them randomly, but how do we check if the
-mouse and cats collide then? and can we still make
-the size of the cats grow (the closer they get) even if
-we don't know what cat that will be displayed?
+<!-- If we put the cats in an array we should be able to place them randomly, but how
+do we check if the mouse and cats collide then? and can we still make the size
+of the cats grow (the closer they get) even if we don't know what cat that will
+be displayed? -->
+
+<!-- We could make only one button for starting the game and change the
+innerText in the button to restart after the first click, right? -->
