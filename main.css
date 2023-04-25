@@ -5,11 +5,7 @@
 header {
   text-align: center;
 }
-/* 
-.container {
-  display: grid;
-  grid-template-columns: 1fr, 3fr, 1fr;
-} */
+
 
 .background {
   position: relative;
