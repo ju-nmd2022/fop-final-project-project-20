@@ -2,6 +2,7 @@
   font-family: sans-serif;
 }
 
+
 #catSitting {
   width: 10%;
   height: fit-content;
@@ -20,4 +21,20 @@
 #mouse {
   width: 5%;
   height: fit-content;
+}
+
+h1{
+  position: center;
+}
+
+#magicPotion{
+width: 10%;
+}
+
+#cheeseBite{
+  width: 10%;
+}
+
+#startButton{
+position: center;
 }
