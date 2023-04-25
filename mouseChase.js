@@ -18,15 +18,21 @@ const powerUpArray = [magicPotion, cheeseBite];
 
 startButton.addEventListener("click", () => {
   gameIsActive = true;
-
+  startButton.style.visibility = "hidden";
   console.log("hello");
 });
 restartButton.addEventListener("click", () => {
   gameIsActive = true;
+  restartButton.style.visibility = "hidden";
   console.log("hello");
 });
 
+// let mouseX = width / 2;
+
 function gameActive() {
   if (gameIsActive === true) {
+    if (keyIsDown(39)) {
+      //   mouse = mouseX + 1;
+    }
   }
 }
