@@ -6,7 +6,6 @@ header {
   text-align: center;
 }
 
-
 .background {
   position: relative;
   display: flex;
@@ -63,6 +62,13 @@ h1 {
   width: 10%;
 }
 
-#startButton {
-  position: center;
+#restartButton {
+  font-size: x-large;
+  position: absolute;
+  top: 40%;
+  left: 43%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
