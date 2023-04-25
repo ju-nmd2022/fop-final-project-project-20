@@ -2,23 +2,58 @@
   font-family: sans-serif;
 }
 
+<<<<<<< Updated upstream
+=======
+header {
+  text-align: center;
+}
+/* 
+.container {
+  display: grid;
+  grid-template-columns: 1fr, 3fr, 1fr;
+} */
+
+.background {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: fit-content;
+}
+
+#startButton {
+  font-size: x-large;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+>>>>>>> Stashed changes
 
 #catSitting {
+  position: absolute;
   width: 10%;
   height: fit-content;
 }
 
 #catStanding {
+  position: absolute;
   width: 10%;
   height: fit-content;
 }
 
 #catLaying {
+  position: absolute;
   width: 10%;
   height: fit-content;
 }
 
 #mouse {
+  position: absolute;
   width: 5%;
   height: fit-content;
 }

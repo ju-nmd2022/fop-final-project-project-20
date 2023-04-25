@@ -10,7 +10,22 @@ const mouse = document.getElementById("mouse");
 
 // Other elements in the game
 const mousetrap = document.getElementById("mousetrap");
-const magicPotion = document.detElementById("magicPotion");
+const magicPotion = document.getElementById("magicPotion");
 const cheeseBite = document.getElementById("cheeseBite");
 
-let gameActive = false;
+let gameIsActive = false;
+let catArray = [catSitting, catStanding, catLaying];
+
+startButton.addEventListener("click", () => {
+  gameIsActive = true;
+  console.log("hello");
+});
+restartButton.addEventListener("click", () => {
+  gameIsActive = true;
+  console.log("hello");
+});
+
+function gameActive() {
+  if (gameIsActive === true) {
+  }
+}
