@@ -2,8 +2,6 @@
   font-family: sans-serif;
 }
 
-<<<<<<< Updated upstream
-=======
 header {
   text-align: center;
 }
@@ -32,7 +30,6 @@ header {
   padding-left: 3rem;
   padding-right: 3rem;
 }
->>>>>>> Stashed changes
 
 #catSitting {
   position: absolute;
@@ -58,18 +55,18 @@ header {
   height: fit-content;
 }
 
-h1{
+h1 {
   position: center;
 }
 
-#magicPotion{
-width: 10%;
-}
-
-#cheeseBite{
+#magicPotion {
   width: 10%;
 }
 
-#startButton{
-position: center;
+#cheeseBite {
+  width: 10%;
+}
+
+#startButton {
+  position: center;
 }
