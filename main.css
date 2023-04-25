@@ -24,6 +24,7 @@ header {
   padding-bottom: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;
+  visibility: visible;
 }
 
 #catSitting {
@@ -46,7 +47,9 @@ header {
 
 #mouse {
   position: absolute;
-  width: 5%;
+  top: 80%;
+  left: 45%;
+  width: 10%;
   height: fit-content;
 }
 
@@ -71,4 +74,5 @@ h1 {
   padding-bottom: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;
+  visibility: hidden;
 }

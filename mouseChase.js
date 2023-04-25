@@ -9,15 +9,16 @@ const catLaying = document.getElementById("catLying");
 const mouse = document.getElementById("mouse");
 
 // Other elements in the game
-const mousetrap = document.getElementById("mousetrap");
 const magicPotion = document.getElementById("magicPotion");
 const cheeseBite = document.getElementById("cheeseBite");
 
 let gameIsActive = false;
-let catArray = [catSitting, catStanding, catLaying];
+const catArray = [catSitting, catStanding, catLaying];
+const powerUpArray = [magicPotion, cheeseBite];
 
 startButton.addEventListener("click", () => {
   gameIsActive = true;
+
   console.log("hello");
 });
 restartButton.addEventListener("click", () => {
