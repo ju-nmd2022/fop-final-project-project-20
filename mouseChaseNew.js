@@ -20,6 +20,8 @@ function setup() {
   createCanvas(800, 600);
 }
 
+function startButton() {}
+
 function draw() {
   image(scenary, 0, 0, 800, 600);
   image(mouse, 350, 500, 120, 90);
