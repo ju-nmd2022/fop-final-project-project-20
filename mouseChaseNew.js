@@ -1,15 +1,26 @@
 // putting them in a preload makes them load before the setup
 function preload() {
-  scenary = loadImage("illustration/Background.png");
+  // background
+  scenary = loadImage("illustration/playScreen.png");
+
+  //   character you play
   mouse = loadImage("illustration/mouse.PNG");
-  catStanding = loadImage("illustration/Cat_standing.png");
+
+  //   obstacles
+  catStanding = loadImage("illustration/catStanding.png");
+  catSitting = loadImage("illustration/catSitting.PNG");
+  catLaying = loadImage("illustration/catLaying");
+
+  //   powerups / points
+  cheeseBite = loadImage("illustration/cheeseBite.png");
+  magicPotion = loadImage("illustration/magicPotion");
 }
 
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(800, 600);
 }
 
 function draw() {
-  image(scenary, 0, 0, 1000, 800);
-  image(mouse, 475, 700, 150, 120);
+  image(scenary, 0, 0, 800, 600);
+  image(mouse, 350, 500, 120, 90);
 }
