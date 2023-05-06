@@ -20,9 +20,35 @@ function setup() {
   createCanvas(800, 600);
 }
 
-function startButton() {}
+function startButton() {
+  fill(255, 255, 255);
+  noStroke();
+  rect(300, 200, 200, 50);
+  fill(0, 0, 0);
+  textSize(20);
+  text(sentence1, 350, 230);
+}
+
+function mousePressed() {
+  if (mouseX < 300 && mouseX > 500 && mouseY < 200 && mouseY > 250) {
+    gameIsActive = true;
+  }
+}
+
+let gameIsActive = false;
+const sentence1 = "Start game";
+let characterMouseX = 350;
+let characterMouseY = 500;
 
 function draw() {
   image(scenary, 0, 0, 800, 600);
-  image(mouse, 350, 500, 120, 90);
+  image(mouse, characterMouseX, characterMouseY, 120, 90);
+
+  if (gameIsActive === true) {
+    if (keyIsDown(39)) {
+      characterMouseX = characterMouseX + 1;
+    }
+  } else {
+    startButton();
+  }
 }
