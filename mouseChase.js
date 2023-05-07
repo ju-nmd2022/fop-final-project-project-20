@@ -9,6 +9,8 @@ const catLaying = document.getElementById("catLying");
 const mouse = document.getElementById("mouse");
 
 // Other elements in the game
+const startScreen = document.getElementById("startScreen");
+const playScreen = document.getElementById("playScreen");
 const magicPotion = document.getElementById("magicPotion");
 const cheeseBite = document.getElementById("cheeseBite");
 
@@ -27,6 +29,8 @@ restartButton.addEventListener("click", () => {
   console.log("hello");
 });
 
+
+
 // let mouseX = width / 2;
 
 function gameActive() {
@@ -36,3 +40,17 @@ function gameActive() {
     }
   }
 }
+
+
+//when the start button is pressed the start screen is switched to play screen
+startButton.addEventListener("click", () => {
+  gameIsActive = true;
+  startScreen.style.visibility = "hidden";
+  console.log("Game started");
+});
+
+startButton.addEventListener("click", () => {
+  gameIsActive = true;
+  playScreen.style.visibility = "visible";
+  console.log("Game started");
+});
