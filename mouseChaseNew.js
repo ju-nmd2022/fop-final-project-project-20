@@ -29,16 +29,16 @@ function startButton() {
   text(sentence1, 350, 230);
 }
 
+let gameIsActive = false;
+const sentence1 = "Start game";
+let characterMouseX = 350;
+let characterMouseY = 500;
+
 function mousePressed() {
   if (mouseX < 300 && mouseX > 500 && mouseY < 200 && mouseY > 250) {
     gameIsActive = true;
   }
 }
-
-let gameIsActive = false;
-const sentence1 = "Start game";
-let characterMouseX = 350;
-let characterMouseY = 500;
 
 function draw() {
   image(scenary, 0, 0, 800, 600);
