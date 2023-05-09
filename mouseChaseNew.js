@@ -35,8 +35,10 @@ let characterMouseX = 350;
 let characterMouseY = 500;
 
 function mousePressed() {
-  if (mouseX < 300 && mouseX > 500 && mouseY < 200 && mouseY > 250) {
+  if (mouseX > 500 && mouseX < 300 && mouseY > 250 && mouseY < 200) {
     gameIsActive = true;
+    characterMouseX = 350;
+    console.log("hi");
   }
 }
 
