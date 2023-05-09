@@ -46,11 +46,18 @@ function draw() {
   image(scenary, 0, 0, 800, 600);
   image(mouse, characterMouseX, characterMouseY, 120, 90);
 
-  if (gameIsActive === true) {
-    if (keyIsDown(39)) {
-      characterMouseX = characterMouseX + 1;
-    }
-  } else {
-    startButton();
+  // if (gameIsActive === true) {
+  if (keyIsDown(39)) {
+    characterMouseX = characterMouseX + 8;
   }
+  if (keyIsDown(37)) {
+    characterMouseX = characterMouseX - 8;
+  }
+
+  if (characterMouseX > 800 && characterMouseX < 0) {
+    gameIsActive = false;
+  }
+  // } else {
+  //   startButton();
+  // }
 }
