@@ -47,7 +47,7 @@ let characterMouseX = 350;
 let characterMouseY = 500;
 
 function mousePressed() {
-  if (mouseX > 140 && mouseX < 390 && mouseY > 250 && mouseY < 270) {
+  if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
     gameIsActive = true;
     characterMouseX = 350;
     console.log("hi");
@@ -66,11 +66,6 @@ function draw() {
     }
     if (keyIsDown(37)) {
       characterMouseX = characterMouseX - 8;
-    }
-
-    if (characterMouseX > 800 && characterMouseX < 0) {
-      gameIsActive = false;
-      image(hitTheWall, 0, 0, 800, 600);
     }
   }
 }
