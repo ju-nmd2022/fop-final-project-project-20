@@ -35,6 +35,10 @@ function startButton() {
 
 let gameIsActive = false;
 const sentence1 = "Start game";
+
+const catArray = [catStanding, catSitting, catLaying];
+const powerUpArray = [cheeseBite, magicPotion];
+
 let characterMouseX = 350;
 let characterMouseY = 500;
 
