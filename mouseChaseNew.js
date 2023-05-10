@@ -3,6 +3,10 @@ function preload() {
   // background
   scenary = loadImage("illustration/playScreen.png");
 
+  // result screens
+  hitTheWall = loadImage("illustration/failWall.PNG");
+  catGotYou = loadImage("illustration/failCaught.PNG");
+
   //   character you play
   mouse = loadImage("illustration/mouse.PNG");
 
@@ -56,6 +60,7 @@ function draw() {
 
   if (characterMouseX > 800 && characterMouseX < 0) {
     gameIsActive = false;
+    image(hitTheWall, 0, 0, 800, 600);
   }
   // } else {
   //   startButton();
