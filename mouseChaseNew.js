@@ -3,6 +3,9 @@ function preload() {
   // background
   scenary = loadImage("illustration/playScreen.png");
 
+  // startscreen
+  startScreen = loadImage("illustration/startScreen.PNG");
+
   // result screens
   hitTheWall = loadImage("illustration/failWall.PNG");
   catGotYou = loadImage("illustration/failCaught.PNG");
@@ -24,26 +27,16 @@ function setup() {
   createCanvas(800, 600);
 }
 
-function startButton() {
-  fill(255, 255, 255);
-  noStroke();
-  rect(300, 200, 200, 50);
-  fill(0, 0, 0);
-  textSize(20);
-  text(sentence1, 350, 230);
-}
-
 let gameIsActive = false;
-const sentence1 = "Start game";
 
-const catArray = [catStanding, catSitting, catLaying];
-const powerUpArray = [cheeseBite, magicPotion];
+// const catArray = [catStanding, catSitting, catLaying];
+// const powerUpArray = [cheeseBite, magicPotion];
 
 let characterMouseX = 350;
 let characterMouseY = 500;
 
 function mousePressed() {
-  if (mouseX > 500 && mouseX < 300 && mouseY > 250 && mouseY < 200) {
+  if (mouseX > 140 && mouseX < 390 && mouseY > 250 && mouseY < 270) {
     gameIsActive = true;
     characterMouseX = 350;
     console.log("hi");
@@ -51,22 +44,21 @@ function mousePressed() {
 }
 
 function draw() {
-  image(scenary, 0, 0, 800, 600);
-  image(mouse, characterMouseX, characterMouseY, 120, 90);
+  image(startScreen, 0, 0, 800, 600);
 
-  // if (gameIsActive === true) {
-  if (keyIsDown(39)) {
-    characterMouseX = characterMouseX + 8;
-  }
-  if (keyIsDown(37)) {
-    characterMouseX = characterMouseX - 8;
-  }
+  if (gameIsActive === true) {
+    image(scenary, 0, 0, 800, 600);
+    image(mouse, characterMouseX, characterMouseY, 120, 90);
+    if (keyIsDown(39)) {
+      characterMouseX = characterMouseX + 8;
+    }
+    if (keyIsDown(37)) {
+      characterMouseX = characterMouseX - 8;
+    }
 
-  if (characterMouseX > 800 && characterMouseX < 0) {
-    gameIsActive = false;
-    image(hitTheWall, 0, 0, 800, 600);
+    if (characterMouseX > 800 && characterMouseX < 0) {
+      gameIsActive = false;
+      image(hitTheWall, 0, 0, 800, 600);
+    }
   }
-  // } else {
-  //   startButton();
-  // }
 }
