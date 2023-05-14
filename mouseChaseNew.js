@@ -24,6 +24,7 @@ function preload() {
   //   character you play
   mouse = loadImage("illustration/mouse.PNG");
 
+
   //   obstacles
   catStanding = loadImage("illustration/catStanding.png");
   catSitting = loadImage("illustration/catSitting.PNG");
@@ -69,3 +70,26 @@ function draw() {
     }
   }
 }
+
+
+//generating cats
+let randomNumber;
+let message;
+function setRandomNumber(){
+  randomNumber = Math.floor(Math.random() * 3);
+  console.log(x);
+}
+  
+function setMessage(){
+  let randomCat;
+  if (randomNumber === 0){
+    randomCat = catLaying;
+  }
+  else if(randomNumber === 1){
+    randomCat = catSitting;
+  }
+  else if (randomNumber === 2){
+    randomCat = catStanding;
+  }
+}
+
