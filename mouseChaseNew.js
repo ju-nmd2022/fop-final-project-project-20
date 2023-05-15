@@ -81,25 +81,18 @@ let x;
 function catRandom(){
   if (gameIsActive === true){
     
-    if(x == 0){
-    console.log('catStanding');
+    if(x === 0){
+    console.log("cat standing");
     }
-    else if(x == 1){
-      console.log('catSitting');
+    else if(x === 1){
+      console.log("cat sitting");
     }
     else {
-     console.log('catLayng');
+     console.log("cat laying");
     }
   }
 }
 
 
 
-
-let characterCatX = 350;
-let characterCatY = 355;
-
-catStanding = loadImage("illustration/catStanding.png");
-catSitting = loadImage("illustration/catSitting.PNG");
-catLaying = loadImage("illustration/catLaying.png");
 
