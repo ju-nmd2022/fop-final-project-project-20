@@ -9,6 +9,7 @@ let catLaying;
 let cheeseBite;
 let magicPotion;
 
+
 // putting them in a preload makes them load before the setup
 function preload() {
   // background
@@ -73,23 +74,32 @@ function draw() {
 
 
 //generating cats
-let randomNumber;
-let message;
-function setRandomNumber(){
-  randomNumber = Math.floor(Math.random() * 3);
+let x;
+  x = Math.floor(Math.random() * 3);
   console.log(x);
+
+function catRandom(){
+  if (gameIsActive === true){
+    
+    if(x == 0){
+    console.log('catStanding');
+    }
+    else if(x == 1){
+      console.log('catSitting');
+    }
+    else {
+     console.log('catLayng');
+    }
+  }
 }
-  
-function setMessage(){
-  let randomCat;
-  if (randomNumber === 0){
-    randomCat = catLaying;
-  }
-  else if(randomNumber === 1){
-    randomCat = catSitting;
-  }
-  else if (randomNumber === 2){
-    randomCat = catStanding;
-  }
-}
+
+
+
+
+let characterCatX = 350;
+let characterCatY = 355;
+
+catStanding = loadImage("illustration/catStanding.png");
+catSitting = loadImage("illustration/catSitting.PNG");
+catLaying = loadImage("illustration/catLaying.png");
 
