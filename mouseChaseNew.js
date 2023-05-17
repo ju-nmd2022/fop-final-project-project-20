@@ -56,6 +56,28 @@ function mousePressed() {
   }
 }
 
+//generating cats
+
+let x = Math.floor(Math.random() * 3);
+console.log(x);
+
+function catRandom(){
+  if (gameIsActive === true){
+
+    if(x === 0){
+    console.log("cat standing");
+    }
+    else if(x === 1){
+      console.log("cat sitting");
+    }
+    else {
+     console.log("cat laying");
+    }
+  }
+}
+
+catRandom();
+
 function draw() {
   image(startScreen, 0, 0, 800, 600);
 
@@ -72,26 +94,12 @@ function draw() {
   }
 }
 
-
-//generating cats
-let x;
-  x = Math.floor(Math.random() * 3);
-  console.log(x);
-
-function catRandom(){
-  if (gameIsActive === true){
-    
-    if(x === 0){
-    console.log("cat standing");
-    }
-    else if(x === 1){
-      console.log("cat sitting");
-    }
-    else {
-     console.log("cat laying");
-    }
-  }
+function wall (){
+  if(mouse > 90){console.log("stop");}
+  
 }
+
+
 
 
 
