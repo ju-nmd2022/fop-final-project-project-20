@@ -1,3 +1,6 @@
+const leftButton = document.getElementsByClassName("left");
+const rightButton = document.getElementsByClassName("right");
+
 let scenary;
 let startScreen;
 let hitTheWall;
@@ -50,7 +53,7 @@ function mousePressed() {
   if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
     gameIsActive = true;
     characterMouseX = 350;
-    console.log("hi");
+    // console.log("hi");
   }
 }
 
