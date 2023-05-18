@@ -1,9 +1,17 @@
 * {
   font-family: sans-serif;
+  background-color: turquoise;
+  color: black;
 }
 
 header {
   text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .instructions {
@@ -15,21 +23,30 @@ header {
 }
 
 .left {
+  background-color: white;
   font-size: medium;
+  font-weight: bold;
   border-radius: 0.7rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  margin: 1rem;
+  margin: 0.7rem;
 }
 
 .right {
+  background-color: white;
   font-size: medium;
+  font-weight: bold;
   border-radius: 0.7rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  margin: 1rem;
+  margin: 0.7rem;
+}
+
+.creaters {
+  text-align: right;
+  font-size: x-small;
 }
