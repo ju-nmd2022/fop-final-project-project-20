@@ -9,7 +9,6 @@ let catLaying;
 let cheeseBite;
 let magicPotion;
 
-
 // putting them in a preload makes them load before the setup
 function preload() {
   // background
@@ -60,17 +59,14 @@ function mousePressed() {
 let x = Math.floor(Math.random() * 3);
 console.log(x);
 
-function catRandom(){
-  if (gameIsActive === true){
-
-    if(x === 0){
-    console.log("cat standing");
-    }
-    else if(x === 1){
+function catRandom() {
+  if (gameIsActive === true) {
+    if (x === 0) {
+      console.log("cat standing");
+    } else if (x === 1) {
       console.log("cat sitting");
-    }
-    else {
-     console.log("cat laying");
+    } else {
+      console.log("cat laying");
     }
   }
 }
@@ -92,7 +88,8 @@ function draw() {
     }
 
     // still not working???
-    if (characterMouseX > 775 && characterMouseX < 25) {
+    if (characterMouseX > 720 || characterMouseX < -40) {
+      console.log("hit");
       gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
     }
