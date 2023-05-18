@@ -57,6 +57,15 @@ function mousePressed() {
   }
 }
 
+// no clue why it doesn't work
+// leftButton.addEventListner("pressed", () => {
+//   characterMouseX = characterMouseX - 8;
+// });
+
+// rightButton.addEventListner("pressed", () => {
+//   characterMouseX = characterMouseX + 8;
+// });
+
 //generating cats
 
 let x = Math.floor(Math.random() * 3);
@@ -92,7 +101,7 @@ function draw() {
 
     // still not working???
     if (characterMouseX > 720 || characterMouseX < -40) {
-      console.log("hit");
+      // console.log("hit");
       gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
     }
