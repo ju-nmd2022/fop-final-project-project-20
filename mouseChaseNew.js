@@ -66,25 +66,6 @@ function mousePressed() {
 //   characterMouseX = characterMouseX + 8;
 // });
 
-//generating cats
-
-let x = Math.floor(Math.random() * 3);
-console.log(x);
-
-function catRandom() {
-  if (gameIsActive === true) {
-    if (x === 0) {
-      console.log("cat standing");
-    } else if (x === 1) {
-      console.log("cat sitting");
-    } else {
-      console.log("cat laying");
-    }
-  }
-}
-
-catRandom();
-
 function draw() {
   image(startScreen, 0, 0, 800, 600);
 
@@ -108,21 +89,73 @@ function draw() {
   }
 }
 
+
 //generating cats
+let randomCat;
+let catsX = 340;
+let catsY = 400;
+let catsS = 0.1;
+randomCat = catX, catY; //dont even ask im just trying stuff out
+
 let randomNumber;
+function setRandomNumber() {
+  randomNumber = Math.floor(Math.random() * 3);
+  console.log(randomNumber);
+}
+
+function randomizedCat() {
+  image(startScreen, 0, 0, 800, 600);
+ 
+  if (gameIsActive === true) {
+    image(scenary, 0, 0, 800, 600);
+   
+  if (randomNumber === 0) {
+    image(catLaying, catsX, catsY, 120, 90)
+    catsX = catsX + 1;
+    catsS = catsS + 0.001;
+  } else if (randomNumber === 1) {
+    image(catSitting, catsX, catsY, 120, 90)
+    catsX = catsX + 1;
+    catsS = catsS + 0.001;
+  } else if (randomNumber === 2) {
+    image(catStanding, catsX, catsY, 120, 90)
+    catsX = catsX + 1;
+    catsS = catsS + 0.001;
+  }
+}
+}
+
+randomizedCat();
+
+
+//randomize number between boarders
+function randomCatXPlacement() {
+  x = Math.floor(Math.random() * 3);
+  console.log(x);
+  if(x === 0){
+    //randomCat is placed on 300,300 exempelvis
+  }
+}
+
+/*let randomNumber;
 let message;
 function setRandomNumber() {
   randomNumber = Math.floor(Math.random() * 3);
-  console.log(x);
+  console.log(randomNumber);
 }
 
 function setMessage() {
-  let randomCat;
   if (randomNumber === 0) {
     randomCat = catLaying;
+    
   } else if (randomNumber === 1) {
     randomCat = catSitting;
+    
   } else if (randomNumber === 2) {
     randomCat = catStanding;
+    
   }
 }
+*/
+
+
