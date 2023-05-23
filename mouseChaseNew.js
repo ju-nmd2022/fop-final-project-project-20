@@ -79,6 +79,12 @@ function draw() {
   }
 }
 
+// cat position when showing up
+let catX = Math.floor(Math.random() * 100 + 340);
+console.log(catX);
+let catY = 345;
+let catSize = 1;
+
 //generating cats
 let randomCat;
 let catsX = 340;
