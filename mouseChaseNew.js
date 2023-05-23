@@ -85,6 +85,34 @@ console.log(catX);
 let catY = 345;
 let catSize = 1;
 
+function catsDisplayed() {
+  if (randomNumber === 0) {
+    image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
+    catSize = catSize + 0.001;
+    if (catX >= 400) {
+      catX = catX + 1;
+    } else if (catX <= 399) {
+      catX = catX - 1;
+    }
+  } else if (randomNumber === 1) {
+    image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
+    catSize = catSize + 0.001;
+    if (catX >= 400) {
+      catX = catX + 1;
+    } else if (catX <= 399) {
+      catX = catX - 1;
+    }
+  } else if (randomNumber === 2) {
+    image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
+    catSize = catSize + 0.001;
+    if (catX >= 400) {
+      catX = catX + 1;
+    } else if (catX <= 399) {
+      catX = catX - 1;
+    }
+  }
+}
+
 //generating cats
 let randomCat;
 let catsX = 340;
