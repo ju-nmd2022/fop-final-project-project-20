@@ -76,6 +76,8 @@ function draw() {
       gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
     }
+
+    catsDisplayed();
   }
 }
 
