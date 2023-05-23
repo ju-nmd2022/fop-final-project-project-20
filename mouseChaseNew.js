@@ -70,11 +70,14 @@ function draw() {
       characterMouseX = characterMouseX - 8;
     }
 
-    // still not working???
     if (characterMouseX > 720 || characterMouseX < -40) {
-      // console.log("hit");
       gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
+    }
+
+    if(catX == characterMouseX){
+      gameIsActive = false;
+      image(catGotYou, 0, 0, 800, 600);
     }
 
     catsDisplayed();
@@ -84,35 +87,35 @@ function draw() {
 let randomNumber = Math.floor(Math.random() * 3);
 
 // cat position when showing up
-let catX = Math.floor(Math.random() * 100 + 340);
+let catX = Math.floor(Math.random() * 100 + 300);
 console.log(catX);
-let catY = 345;
-let catSize = 1;
+let catY = 280;
+let catSize = 0.5;
 
 function catsDisplayed() {
   if (randomNumber === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.01;
+    catSize = catSize + 0.007;
     if (catX >= 400) {
-      catX = catX + 1;
+      catX = catX + 0.6;
     } else if (catX <= 399) {
-      catX = catX - 1;
+      catX = catX - 0.6;
     }
   } else if (randomNumber === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.01;
+    catSize = catSize + 0.007;
     if (catX >= 400) {
-      catX = catX + 1;
+      catX = catX + 0.5;
     } else if (catX <= 399) {
-      catX = catX - 1;
+      catX = catX - 0.5;
     }
   } else if (randomNumber === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.01;
+    catSize = catSize + 0.007;
     if (catX >= 400) {
-      catX = catX + 1;
+      catX = catX + 0.5;
     } else if (catX <= 399) {
-      catX = catX - 1;
-    }
+      catX = catX - 0.5;
+    } 
   }
 }
