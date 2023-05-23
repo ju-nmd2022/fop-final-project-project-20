@@ -54,8 +54,6 @@ function mousePressed() {
   }
 }
 
-// no clue why it doesn't work
-
 function draw() {
   image(startScreen, 0, 0, 800, 600);
 
@@ -75,7 +73,7 @@ function draw() {
       image(hitTheWall, 0, 0, 800, 600);
     }
 
-    if(catX == characterMouseX){
+    if (catX == characterMouseX) {
       gameIsActive = false;
       image(catGotYou, 0, 0, 800, 600);
     }
@@ -84,14 +82,16 @@ function draw() {
   }
 }
 
+// a random number generator to decide on what cat to display
 let randomNumber = Math.floor(Math.random() * 3);
 
 // cat position when showing up
 let catX = Math.floor(Math.random() * 100 + 300);
 console.log(catX);
-let catY = 280;
+let catY = 300;
 let catSize = 0.5;
 
+// function to display cats in positions
 function catsDisplayed() {
   if (randomNumber === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
@@ -116,6 +116,6 @@ function catsDisplayed() {
       catX = catX + 0.5;
     } else if (catX <= 399) {
       catX = catX - 0.5;
-    } 
+    }
   }
 }
