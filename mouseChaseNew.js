@@ -79,21 +79,22 @@ function draw() {
     }
 
     catsDisplayed();
+    objectsDisplayed();
   }
 }
 
 // a random number generator to decide on what cat to display
-let randomNumber = Math.floor(Math.random() * 3);
+let randomNumberCats = Math.floor(Math.random() * 3);
 
 // cat position when showing up
 let catX = Math.floor(Math.random() * 100 + 300);
 console.log(catX);
-let catY = 300;
+let catY = 310;
 let catSize = 0.5;
 
 // function to display cats in positions
 function catsDisplayed() {
-  if (randomNumber === 0) {
+  if (randomNumberCats === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.007;
     if (catX >= 400) {
@@ -101,7 +102,7 @@ function catsDisplayed() {
     } else if (catX <= 399) {
       catX = catX - 0.6;
     }
-  } else if (randomNumber === 1) {
+  } else if (randomNumberCats === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.007;
     if (catX >= 400) {
@@ -109,13 +110,38 @@ function catsDisplayed() {
     } else if (catX <= 399) {
       catX = catX - 0.5;
     }
-  } else if (randomNumber === 2) {
+  } else if (randomNumberCats === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.007;
     if (catX >= 400) {
       catX = catX + 0.5;
     } else if (catX <= 399) {
       catX = catX - 0.5;
+    }
+  }
+}
+
+let randomNumberObjects = Math.floor(Math.random() * 2);
+let objectX = Math.floor(Math.random() * 100 + 300);
+let objectY = 310;
+let objectSize = 0.5;
+
+function objectsDisplayed() {
+  if (randomNumberObjects === 0) {
+    image(cheeseBite, objectX, objectY, 90 * objectSize, 60 * objectSize);
+    objectSize = objectSize + 0.007;
+    if (objectX >= 400) {
+      objectX = objectX + 0.6;
+    } else if (objectX <= 399) {
+      objectX = objectY - 0.6;
+    }
+  } else if (randomNumberObjects === 1) {
+    image(magicPotion, objectX, objectY, 90 * objectSize, 60 * objectSize);
+    objectSize = objectSize + 0.007;
+    if (objectX >= 400) {
+      objectX = objectX + 0.5;
+    } else if (objectX <= 399) {
+      objectX = objectX - 0.5;
     }
   }
 }
