@@ -92,7 +92,7 @@ let catSize = 1;
 function catsDisplayed() {
   if (randomNumber === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.001;
+    catSize = catSize + 0.01;
     if (catX >= 400) {
       catX = catX + 1;
     } else if (catX <= 399) {
@@ -100,7 +100,7 @@ function catsDisplayed() {
     }
   } else if (randomNumber === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.001;
+    catSize = catSize + 0.01;
     if (catX >= 400) {
       catX = catX + 1;
     } else if (catX <= 399) {
@@ -108,7 +108,7 @@ function catsDisplayed() {
     }
   } else if (randomNumber === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.001;
+    catSize = catSize + 0.01;
     if (catX >= 400) {
       catX = catX + 1;
     } else if (catX <= 399) {
