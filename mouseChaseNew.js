@@ -81,6 +81,8 @@ function draw() {
   }
 }
 
+let randomNumber = Math.floor(Math.random() * 3);
+
 // cat position when showing up
 let catX = Math.floor(Math.random() * 100 + 340);
 console.log(catX);
@@ -121,12 +123,6 @@ let catsX = 340;
 let catsY = 400;
 let catsS = 0.1;
 (randomCat = catX), catY; //dont even ask im just trying stuff out
-
-let randomNumber;
-function setRandomNumber() {
-  randomNumber = Math.floor(Math.random() * 3);
-  console.log(randomNumber);
-}
 
 function randomizedCat() {
   image(startScreen, 0, 0, 800, 600);
