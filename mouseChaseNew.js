@@ -58,7 +58,7 @@ function draw() {
 
   if (gameIsActive === true) {
     image(scenary, 0, 0, 800, 600);
-    image(mouse, characterMouseX, characterMouseY, 120, 90);
+    image(mouse, characterMouseX, characterMouseY, charachterMouseWidth, charachterMouseHeight);
 
     if (keyIsDown(39)) {
       characterMouseX = characterMouseX + 8;
@@ -92,7 +92,7 @@ function catsDisplayed() {
   if (randomNumberCats === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -101,7 +101,7 @@ function catsDisplayed() {
   } else if (randomNumberCats === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -110,7 +110,7 @@ function catsDisplayed() {
   } else if (randomNumberCats === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -146,71 +146,70 @@ function objectsDisplayed() {
   }
 }
 
-
-
-let charachterMouseHeight = 40;
-let charachterMouseWidth = 40;
+let charachterMouseHeight = 90;
+let charachterMouseWidth = 120;
 let catWidth = 80;
 let catHeight = 80;
 
-function catCollision(catArray, mouse){
-  if(catX + catWidth >= characterMouseX && catX <= characterMouseX + charachterMouseWidth){
-    if (catY + catHeight >= characterMouseY){
-        gameIsActive = false;
+function catCollision(catArray, mouse) {
+  if (
+    catX + catWidth >= characterMouseX &&
+    catX <= characterMouseX + charachterMouseWidth) {
+    if (catY + catHeight >= characterMouseY) {
+      gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
-      }
     }
-  } 
-    
-
-let inputElement = document.getElementById("name")
-let addButton = document.getElementById("add")
-let pointElement = document.getElementById("point")
-let pointValue = 0
-let pointArray = []
-
-function pointCounter(){
-pointValue = pointValue + 1;
-}
-
-addButton.addEventListener("click", savePoints);
-
-inputElement.addEventListener("keypress", (event) => {
-  if (event.code === "Enter") {
-    savePoints();
   }
-});
-
-function savePoints(){
-const points = (
-  name: inputElement.value,
-  number: pointValue
-)
-
-if (inputElement.value.lenght > 0){
-  pointArray.push(points);
-  displayPoints();
-}
 }
 
-function displayPoints(points){
-pointElement.innerHTML = "";
+// let inputElement = document.getElementById("name");
+// let addButton = document.getElementById("add");
+// let pointElement = document.getElementById("point");
+// let pointValue = 0;
+// let pointArray = [];
 
-for(let points of pointArray){
-  // Element where we put in all the other elements for points
-  const pointsBuldingBlocks = document.createElement("div");
+// function pointCounter() {
+//   pointValue = pointValue + 1;
+// }
 
-  // A span for text
-  const inputName = document.createElement("span");
-    inputName.innerText = points.name;
-    pointsBuldingBlocks.appendChild(inputName);
+// addButton.addEventListener("click", savePoints);
 
-    // Span for showing the points
-    const collectedPoints = document.createElement("span");
-    collectedPoints.innerText = points.number;
-    pointsBuldingBlocks.appendChild(collectedPoints);
+// inputElement.addEventListener("keypress", (event) => {
+//   if (event.code === "Enter") {
+//     savePoints();
+//   }
+// });
 
-    //  Putting the collected elements to the place they should show
-    pointElement.appendChild(pointsBuldingBlocks);
-}
-}
+// function savePoints(){
+// const points = (
+//   name: inputElement.value,
+//   number: pointValue,
+// )
+
+// if (inputElement.value.lenght > 0){
+//   pointArray.push(points);
+//   displayPoints();
+// }
+// }
+
+// function displayPoints(points) {
+//   pointElement.innerHTML = "";
+
+//   for (let points of pointArray) {
+//     // Element where we put in all the other elements for points
+//     const pointsBuldingBlocks = document.createElement("div");
+
+//     // A span for text
+//     const inputName = document.createElement("span");
+//     inputName.innerText = points.name;
+//     pointsBuldingBlocks.appendChild(inputName);
+
+//     // Span for showing the points
+//     const collectedPoints = document.createElement("span");
+//     collectedPoints.innerText = points.number;
+//     pointsBuldingBlocks.appendChild(collectedPoints);
+
+//     //  Putting the collected elements to the place they should show
+//     pointElement.appendChild(pointsBuldingBlocks);
+//   }
+// }
