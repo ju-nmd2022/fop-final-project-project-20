@@ -96,27 +96,30 @@ let catSize = 0.5;
 function catsDisplayed() {
   if (randomNumberCats === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.007;
+    catSize = catSize + 0.008;
+    catY = catY + 0.4
     if (catX >= 400) {
-      catX = catX + 0.6;
+      catX = catX + 0.8;
     } else if (catX <= 399) {
-      catX = catX - 0.6;
+      catX = catX - 0.8;
     }
   } else if (randomNumberCats === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.007;
+    catSize = catSize + 0.008;
+    catY = catY + 0.4
     if (catX >= 400) {
-      catX = catX + 0.5;
+      catX = catX + 0.8;
     } else if (catX <= 399) {
-      catX = catX - 0.5;
+      catX = catX - 0.8;
     }
   } else if (randomNumberCats === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
-    catSize = catSize + 0.007;
+    catSize = catSize + 0.008;
+    catY = catY + 0.4
     if (catX >= 400) {
-      catX = catX + 0.5;
+      catX = catX + 0.8;
     } else if (catX <= 399) {
-      catX = catX - 0.5;
+      catX = catX - 0.8;
     }
   }
 }
@@ -145,6 +148,8 @@ function objectsDisplayed() {
     }
   }
 }
+
+
 
 let charachterMouseHeight = 20;
 let charachterMouseWidth = 20;
