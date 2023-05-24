@@ -73,10 +73,10 @@ function draw() {
       image(hitTheWall, 0, 0, 800, 600);
     }
 
-    if (catX == characterMouseX) {
+    /*if (catX == characterMouseX) {
       gameIsActive = false;
       image(catGotYou, 0, 0, 800, 600);
-    }
+    }*/
 
     catsDisplayed();
     objectsDisplayed();
@@ -144,4 +144,16 @@ function objectsDisplayed() {
       objectX = objectX - 0.5;
     }
   }
+}
+
+let charachterMouseHeight = 20;
+let charachterMouseWidth = 20;
+let catsWidth = 60;
+catsHeight = 60;
+
+function collision(catArray, mouse){
+  if(catsX + catsWidth >= characterMouseX && catsX <= characterMouseX + charachterMouseWidth
+    && catsY + catsHeight >= characterMouseY && catsY <= characterMouseY + charachterMouseHeight)
+  gameIsActive = false;
+  image(catGotYou, 0, 0, 800, 600);
 }
