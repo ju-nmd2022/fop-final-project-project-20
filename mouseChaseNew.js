@@ -167,54 +167,54 @@ function catCollision(catArray, mouse) {
   }
 }
 
-let inputElement = document.getElementById("name");
-let addButton = document.getElementById("add");
-let pointElement = document.getElementById("point");
-let pointValue = 0;
-let pointArray = [];
+// let inputElement = document.getElementById("name");
+// let addButton = document.getElementById("add");
+// let pointElement = document.getElementById("point");
+// let pointValue = 0;
+// let pointArray = [];
 
-function pointCounter() {
-  pointValue = pointValue + 1;
-}
+// function pointCounter() {
+//   pointValue = pointValue + 1;
+// }
 
-addButton.addEventListener("click", savePoints);
+// addButton.addEventListener("click", savePoints);
 
-inputElement.addEventListener("keypress", (event) => {
-  if (event.code === "Enter") {
-    savePoints();
-  }
-});
+// inputElement.addEventListener("keypress", (event) => {
+//   if (event.code === "Enter") {
+//     savePoints();
+//   }
+// });
 
-function savePoints(){
-const points = (
-  name: inputElement.value,
-  number: pointValue,
-)
+// function savePoints(){
+// const points = (
+//   name: inputElement.value,
+//   number: pointValue,
+// )
 
-if (inputElement.value.lenght > 0){
-  pointArray.push(points);
-  displayPoints();
-}
-}
+// if (inputElement.value.lenght > 0){
+//   pointArray.push(points);
+//   displayPoints();
+// }
+// }
 
-function displayPoints(points) {
-  pointElement.innerHTML = "";
+// function displayPoints(points) {
+//   pointElement.innerHTML = "";
 
-  for (let points of pointArray) {
-    // Element where we put in all the other elements for points
-    const pointsBuldingBlocks = document.createElement("div");
+//   for (let points of pointArray) {
+//     // Element where we put in all the other elements for points
+//     const pointsBuldingBlocks = document.createElement("div");
 
-    // A span for text
-    const inputName = document.createElement("span");
-    inputName.innerText = points.name;
-    pointsBuldingBlocks.appendChild(inputName);
+//     // A span for text
+//     const inputName = document.createElement("span");
+//     inputName.innerText = points.name;
+//     pointsBuldingBlocks.appendChild(inputName);
 
-    // Span for showing the points
-    const collectedPoints = document.createElement("span");
-    collectedPoints.innerText = points.number;
-    pointsBuldingBlocks.appendChild(collectedPoints);
+//     // Span for showing the points
+//     const collectedPoints = document.createElement("span");
+//     collectedPoints.innerText = points.number;
+//     pointsBuldingBlocks.appendChild(collectedPoints);
 
-    //  Putting the collected elements to the place they should show
-    pointElement.appendChild(pointsBuldingBlocks);
-  }
-}
+//     //  Putting the collected elements to the place they should show
+//     pointElement.appendChild(pointsBuldingBlocks);
+//   }
+// }
