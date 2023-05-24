@@ -37,22 +37,21 @@ function preload() {
 function setup() {
   createCanvas(800, 600);
 }
-
 let gameIsActive = false;
+
 
 const catArray = [catStanding, catSitting, catLaying];
 const powerUpArray = [cheeseBite, magicPotion];
-
-let characterMouseX = 350;
-let characterMouseY = 500;
 
 function mousePressed() {
   if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
     gameIsActive = true;
     characterMouseX = 350;
-    // console.log("hi");
   }
 }
+
+let characterMouseX = 350;
+let characterMouseY = 500;
 
 function draw() {
   image(startScreen, 0, 0, 800, 600);
@@ -73,13 +72,8 @@ function draw() {
       image(hitTheWall, 0, 0, 800, 600);
     }
 
-    /*if (catX == characterMouseX) {
-      gameIsActive = false;
-      image(catGotYou, 0, 0, 800, 600);
-    }*/
-
-    catsDisplayed();
     objectsDisplayed();
+    catsDisplayed();
     catCollision();
   }
 }
@@ -133,29 +127,31 @@ let objectSize = 0.5;
 function objectsDisplayed() {
   if (randomNumberObjects === 0) {
     image(cheeseBite, objectX, objectY, 90 * objectSize, 60 * objectSize);
-    objectSize = objectSize + 0.007;
+    objectSize = objectSize + 0.008;
+    objectY = objectY + 0.4
     if (objectX >= 400) {
-      objectX = objectX + 0.6;
+      objectX = objectX + 0.8;
     } else if (objectX <= 399) {
-      objectX = objectY - 0.6;
+      objectX = objectX - 0.8;
     }
   } else if (randomNumberObjects === 1) {
     image(magicPotion, objectX, objectY, 90 * objectSize, 60 * objectSize);
-    objectSize = objectSize + 0.007;
+    objectSize = objectSize + 0.008;
+    objectY = objectY + 0.4
     if (objectX >= 400) {
-      objectX = objectX + 0.5;
+      objectX = objectX + 0.8;
     } else if (objectX <= 399) {
-      objectX = objectX - 0.5;
+      objectX = objectX - 0.8;
     }
   }
 }
 
 
 
-let charachterMouseHeight = 20;
-let charachterMouseWidth = 20;
-let catWidth = 40;
-let catHeight = 40;
+let charachterMouseHeight = 40;
+let charachterMouseWidth = 40;
+let catWidth = 80;
+let catHeight = 80;
 
 function catCollision(catArray, mouse){
   if(catX + catWidth >= characterMouseX && catX <= characterMouseX + charachterMouseWidth){
