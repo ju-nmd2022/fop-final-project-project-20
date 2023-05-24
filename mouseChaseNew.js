@@ -80,6 +80,7 @@ function draw() {
 
     catsDisplayed();
     objectsDisplayed();
+    catCollision();
   }
 }
 
@@ -153,15 +154,18 @@ function objectsDisplayed() {
 
 let charachterMouseHeight = 20;
 let charachterMouseWidth = 20;
-let catsWidth = 60;
-let catsHeight = 60;
+let catWidth = 40;
+let catHeight = 40;
 
 function catCollision(catArray, mouse){
-  if(catsX + catsWidth >= characterMouseX && catsX <= characterMouseX + charachterMouseWidth && 
-    catsY + catsHeight >= characterMouseY && catsY <= characterMouseY + charachterMouseHeight)
-  gameIsActive = false;
-  image(catGotYou, 0, 0, 800, 600);
-}
+  if(catX + catWidth >= characterMouseX && catX <= characterMouseX + charachterMouseWidth){
+    if (catY + catHeight >= characterMouseY){
+        gameIsActive = false;
+      image(hitTheWall, 0, 0, 800, 600);
+      }
+    }
+  } 
+    
 
 let inputElement = document.getElementById("name")
 let addButton = document.getElementById("add")
