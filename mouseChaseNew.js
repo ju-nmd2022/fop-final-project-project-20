@@ -188,7 +188,7 @@ inputElement.addEventListener("keypress", (event) => {
 function savePoints(){
 const points = (
   name: inputElement.value,
-  number: pointValue
+  number: pointValue,
 )
 
 if (inputElement.value.lenght > 0){
