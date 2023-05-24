@@ -162,3 +162,55 @@ function catCollision(catArray, mouse){
   gameIsActive = false;
   image(catGotYou, 0, 0, 800, 600);
 }
+
+let inputElement = document.getElementById("name")
+let addButton = document.getElementById("add")
+let pointElement = document.getElementById("point")
+let pointValue = 0
+let pointArray = []
+
+function pointCounter(){
+pointValue = pointValue + 1;
+}
+
+addButton.addEventListener("click", savePoints);
+
+inputElement.addEventListener("keypress", (event) => {
+  if (event.code === "Enter") {
+    savePoints();
+  }
+});
+
+function savePoints(){
+const points = (
+  name: inputElement.value,
+  number: pointValue
+)
+
+if (inputElement.value.lenght > 0){
+  pointArray.push(points);
+  displayPoints();
+}
+}
+
+function displayPoints(points){
+pointElement.innerHTML = "";
+
+for(let points of pointArray){
+  // Element where we put in all the other elements for points
+  const pointsBuldingBlocks = document.createElement("div");
+
+  // A span for text
+  const inputName = document.createElement("span");
+    inputName.innerText = points.name;
+    pointsBuldingBlocks.appendChild(inputName);
+
+    // Span for showing the points
+    const collectedPoints = document.createElement("span");
+    collectedPoints.innerText = points.number;
+    pointsBuldingBlocks.appendChild(collectedPoints);
+
+    //  Putting the collected elements to the place they should show
+    pointElement.appendChild(pointsBuldingBlocks);
+}
+}
