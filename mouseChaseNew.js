@@ -168,7 +168,7 @@ function pointCounter(){
 pointValue = pointValue + 1;
 }
 
-addButtonElement.addEventListener("click", savePoints);
+addButton.addEventListener("click", savePoints);
 
 inputElement.addEventListener("keypress", (event) => {
   if (event.code === "Enter") {
@@ -182,7 +182,7 @@ const points = (
   number: pointValue
 )
 
-if(inputElement.value.lenght > 0){
+if (inputElement.value.lenght > 0){
   pointArray.push(points);
   displayPoints();
 }
@@ -192,14 +192,20 @@ function displayPoints(points){
 pointElement.innerHTML = "";
 
 for(let points of pointArray){
+  // Element where we put in all the other elements for points
   const pointsBuldingBlocks = document.createElement("div");
 
+  // A span for text
   const inputName = document.createElement("span");
     inputName.innerText = points.name;
     pointsBuldingBlocks.appendChild(inputName);
 
+    // Span for showing the points
     const collectedPoints = document.createElement("span");
     collectedPoints.innerText = points.number;
     pointsBuldingBlocks.appendChild(collectedPoints);
+
+    //  Putting the collected elements to the place they should show
+    pointElement.appendChild(pointsBuldingBlocks);
 }
 }
