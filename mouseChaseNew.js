@@ -98,7 +98,7 @@ function catsDisplayed() {
   if (randomNumberCats === 0) {
     image(catLaying, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -107,7 +107,7 @@ function catsDisplayed() {
   } else if (randomNumberCats === 1) {
     image(catSitting, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -116,7 +116,7 @@ function catsDisplayed() {
   } else if (randomNumberCats === 2) {
     image(catStanding, catX, catY, 120 * catSize, 90 * catSize);
     catSize = catSize + 0.008;
-    catY = catY + 0.4
+    catY = catY + 0.4;
     if (catX >= 400) {
       catX = catX + 0.8;
     } else if (catX <= 399) {
@@ -150,31 +150,31 @@ function objectsDisplayed() {
   }
 }
 
-
-
 let charachterMouseHeight = 20;
 let charachterMouseWidth = 20;
 let catWidth = 40;
 let catHeight = 40;
 
-function catCollision(catArray, mouse){
-  if(catX + catWidth >= characterMouseX && catX <= characterMouseX + charachterMouseWidth){
-    if (catY + catHeight >= characterMouseY){
-        gameIsActive = false;
+function catCollision(catArray, mouse) {
+  if (
+    catX + catWidth >= characterMouseX &&
+    catX <= characterMouseX + charachterMouseWidth
+  ) {
+    if (catY + catHeight >= characterMouseY) {
+      gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
-      }
     }
-  } 
-    
+  }
+}
 
-let inputElement = document.getElementById("name")
-let addButton = document.getElementById("add")
-let pointElement = document.getElementById("point")
-let pointValue = 0
-let pointArray = []
+let inputElement = document.getElementById("name");
+let addButton = document.getElementById("add");
+let pointElement = document.getElementById("point");
+let pointValue = 0;
+let pointArray = [];
 
-function pointCounter(){
-pointValue = pointValue + 1;
+function pointCounter() {
+  pointValue = pointValue + 1;
 }
 
 addButton.addEventListener("click", savePoints);
@@ -197,15 +197,15 @@ if (inputElement.value.lenght > 0){
 }
 }
 
-function displayPoints(points){
-pointElement.innerHTML = "";
+function displayPoints(points) {
+  pointElement.innerHTML = "";
 
-for(let points of pointArray){
-  // Element where we put in all the other elements for points
-  const pointsBuldingBlocks = document.createElement("div");
+  for (let points of pointArray) {
+    // Element where we put in all the other elements for points
+    const pointsBuldingBlocks = document.createElement("div");
 
-  // A span for text
-  const inputName = document.createElement("span");
+    // A span for text
+    const inputName = document.createElement("span");
     inputName.innerText = points.name;
     pointsBuldingBlocks.appendChild(inputName);
 
@@ -216,5 +216,5 @@ for(let points of pointArray){
 
     //  Putting the collected elements to the place they should show
     pointElement.appendChild(pointsBuldingBlocks);
-}
+  }
 }
