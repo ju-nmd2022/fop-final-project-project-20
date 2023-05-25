@@ -75,6 +75,8 @@ function draw() {
     objectsDisplayed();
     catsDisplayed();
     catCollision();
+    powerUpCollision();
+    
   }
 }
 
@@ -146,21 +148,42 @@ function objectsDisplayed() {
   }
 }
 
+
 let charachterMouseHeight = 90;
 let charachterMouseWidth = 120;
-let catWidth = 80;
-let catHeight = 80;
+let catWidth = 120;
+let catHeight = 130;
 
 function catCollision(catArray, mouse) {
   if (
     catX + catWidth >= characterMouseX &&
     catX <= characterMouseX + charachterMouseWidth) {
-    if (catY + catHeight >= characterMouseY) {
+      if (catY + catHeight >= characterMouseY) {
       gameIsActive = false;
       image(hitTheWall, 0, 0, 800, 600);
     }
   }
 }
+
+
+let powerUpCollided = false;
+let objectWidth = 120;
+let objectHeight = 140;
+
+function powerUpCollision(powerUpArray, mouse){
+  if (objectX + objectWidth >= characterMouseX &&
+      objectX <= characterMouseX + charachterMouseWidth) {
+      if (objectY + objectHeight >= characterMouseY) {
+        powerUpCollided = true;
+      }
+  }
+}
+
+function powerUpCaught(){
+  if(powerUpCollided = true)
+  display: Nnone;
+}
+
 
 // let inputElement = document.getElementById("name");
 // let addButton = document.getElementById("add");
