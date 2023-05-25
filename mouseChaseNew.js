@@ -8,6 +8,8 @@ let catSitting;
 let catLaying;
 let cheeseBite;
 let magicPotion;
+let catArray;
+let powerUpArray;
 
 // putting them in a preload makes them load before the setup
 function preload() {
@@ -28,19 +30,18 @@ function preload() {
   catStanding = loadImage("illustration/catStanding.png");
   catSitting = loadImage("illustration/catSitting.PNG");
   catLaying = loadImage("illustration/catLaying.png");
+  catArray = [catStanding, catSitting, catLaying];
 
   //   powerups / points
   cheeseBite = loadImage("illustration/cheeseBite.png");
   magicPotion = loadImage("illustration/magicPotion.png");
+  powerUpArray = [cheeseBite, magicPotion];
 }
 
 function setup() {
   createCanvas(800, 600);
 }
 let gameIsActive = "start";
-
-const catArray = [catStanding, catSitting, catLaying];
-const powerUpArray = [cheeseBite, magicPotion];
 
 function mousePressed() {
   if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
@@ -79,7 +80,8 @@ function draw() {
       image(hitTheWall, 0, 0, 800, 600);
     }
 
-    objectsDisplayed();
+    // objectsDisplayed();
+    displayObjects();
     // catsDisplayed();
     displayCats();
     catCollision();
@@ -95,12 +97,11 @@ let randomNumberCats;
 let catX;
 
 function randomX() {
-  catX = Math.floor(Math.random() * 100 + 300);
+  catX = Math.floor(Math.random() * 100 + 350);
 }
 
 // // cat position when showing up
 
-console.log(catX);
 let catY = 310;
 let catSize = 0.5;
 let arrayCatsShowing = [];
@@ -118,51 +119,19 @@ function random() {
 
 function displayCats(random) {
   for (let cats of arrayCatsShowing) {
-    if (randomNumberCats === 0) {
-      image(
-        catLaying,
-        cats.catPositionX,
-        cats.catPositionY,
-        120 * cats.catSizing,
-        90 * cats.catSizing
-      );
-      cats.catSizing = cats.catSizing + 0.008;
-      cats.catPositionY = cats.catPositionY + 0.4;
-      if (cats.catPositionX >= 400) {
-        cats.catPositionX = cats.catPositionX + 0.8;
-      } else if (cats.catPositionX <= 399) {
-        cats.catPositionX = cats.catPositionX - 0.8;
-      }
-    } else if (randomNumberCats === 1) {
-      image(
-        catSitting,
-        cats.catPositionX,
-        cats.catPositionY,
-        120 * cats.catSizing,
-        90 * cats.catSizing
-      );
-      cats.catSizing = cats.catSizing + 0.008;
-      cats.catPositionY = cats.catPositionY + 0.4;
-      if (cats.catPositionX >= 400) {
-        cats.catPositionX = cats.catPositionX + 0.8;
-      } else if (cats.catPositionX <= 399) {
-        cats.catPositionX = cats.catPositionX - 0.8;
-      }
-    } else if (randomNumberCats === 2) {
-      image(
-        catStanding,
-        cats.catPositionX,
-        cats.catPositionY,
-        120 * cats.catSizing,
-        90 * cats.catSizing
-      );
-      cats.catSizing = cats.catSizing + 0.008;
-      cats.catPositionY = cats.catPositionY + 0.4;
-      if (cats.catPositionX >= 400) {
-        cats.catPositionX = cats.catPositionX + 0.8;
-      } else if (cats.catPositionX <= 399) {
-        cats.catPositionX = cats.catPositionX - 0.8;
-      }
+    image(
+      catArray[randomNumberCats],
+      cats.catPositionX,
+      cats.catPositionY,
+      120 * cats.catSizing,
+      90 * cats.catSizing
+    );
+    cats.catSizing = cats.catSizing + 0.008;
+    cats.catPositionY = cats.catPositionY + 0.4;
+    if (cats.catPositionX >= 380) {
+      cats.catPositionX = cats.catPositionX + 0.8;
+    } else if (cats.catPositionX <= 379) {
+      cats.catPositionX = cats.catPositionX - 0.8;
     }
   }
 }
@@ -199,32 +168,71 @@ function displayCats(random) {
 //   }
 // }
 
-let randomNumberObjects = Math.floor(Math.random() * 2);
-let objectX = Math.floor(Math.random() * 100 + 300);
+setInterval(random2, 12000);
+setInterval(randomX2, 12000);
+
+let randomNumberObjects;
+let objectX;
+
+function randomX2() {
+  objectX = Math.floor(Math.random() * 100 + 300);
+}
+
 let objectY = 310;
 let objectSize = 0.5;
+let arrayObjectsShowing = [];
 
-function objectsDisplayed() {
-  if (randomNumberObjects === 0) {
-    image(cheeseBite, objectX, objectY, 90 * objectSize, 60 * objectSize);
-    objectSize = objectSize + 0.008;
-    objectY = objectY + 0.4;
-    if (objectX >= 400) {
-      objectX = objectX + 0.8;
-    } else if (objectX <= 399) {
-      objectX = objectX - 0.8;
-    }
-  } else if (randomNumberObjects === 1) {
-    image(magicPotion, objectX, objectY, 90 * objectSize, 60 * objectSize);
-    objectSize = objectSize + 0.008;
-    objectY = objectY + 0.4;
-    if (objectX >= 400) {
-      objectX = objectX + 0.8;
-    } else if (objectX <= 399) {
-      objectX = objectX - 0.8;
+function random2() {
+  const objects = {
+    objectPositionX: objectX,
+    objectPositionY: objectY,
+    objectSizing: objectSize,
+  };
+
+  arrayObjectsShowing.push(objects);
+  randomNumberObjects = Math.floor(Math.random() * 2);
+}
+
+function displayObjects(objects) {
+  for (let objects of arrayObjectsShowing) {
+    image(
+      powerUpArray[randomNumberObjects],
+      objects.objectPositionX,
+      objects.objectPositionY,
+      90 * objects.objectSizing,
+      60 * objects.objectSizing
+    );
+    objects.objectSizing = objects.objectSizing + 0.008;
+    objects.objectPositionY = objects.objectPositionY + 0.4;
+    if (objects.objectPositionX >= 380) {
+      objects.objectPositionX = objects.objectPositionX + 0.8;
+    } else if (objects.objectPositionX <= 379) {
+      objects.objectPositionX = objects.objectPositionX - 0.8;
     }
   }
 }
+
+// function objectsDisplayed() {
+//   if (randomNumberObjects === 0) {
+//     image(cheeseBite, objectX, objectY, 90 * objectSize, 60 * objectSize);
+//     objectSize = objectSize + 0.008;
+//     objectY = objectY + 0.4;
+//     if (objectX >= 400) {
+//       objectX = objectX + 0.8;
+//     } else if (objectX <= 399) {
+//       objectX = objectX - 0.8;
+//     }
+//   } else if (randomNumberObjects === 1) {
+//     image(magicPotion, objectX, objectY, 90 * objectSize, 60 * objectSize);
+//     objectSize = objectSize + 0.008;
+//     objectY = objectY + 0.4;
+//     if (objectX >= 400) {
+//       objectX = objectX + 0.8;
+//     } else if (objectX <= 399) {
+//       objectX = objectX - 0.8;
+//     }
+//   }
+// }
 
 let charachterMouseHeight = 90;
 let charachterMouseWidth = 120;
