@@ -42,6 +42,13 @@ function setup() {
   createCanvas(800, 600);
 }
 let gameIsActive = "start";
+let sentence = 0;
+
+function points() {
+  fill(255);
+  textSize(50);
+  text(sentence, 700, 70);
+}
 
 function mousePressed() {
   if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
@@ -60,7 +67,14 @@ function draw() {
 
   if (gameIsActive === "active") {
     image(scenary, 0, 0, 800, 600);
-    image(mouse, characterMouseX, characterMouseY, 120, 90);
+
+    image(
+      mouse,
+      characterMouseX,
+      characterMouseY,
+      characterMouseWidth,
+      characterMouseHeight
+    );
 
     if (keyIsDown(39)) {
       characterMouseX = characterMouseX + 8;
@@ -74,18 +88,21 @@ function draw() {
       image(hitTheWall, 0, 0, 800, 600);
       arrayCatsShowing = [];
       arrayObjectsShowing = [];
+      sentence = 0;
     }
 
+    points();
     displayObjects();
     displayCats();
     catCollision();
-    powerUpCollision(arrayObjectsShowing);
+    powerUpCollision();
+    powerUpCaught();
   }
 }
 
 // a random number generator to decide on what cat to display
-setInterval(catObject, 8000);
-setInterval(updatingX, 8000);
+setInterval(catObject, 10000);
+setInterval(updatingX, 10000);
 
 let randomNumberCats;
 let catX;
@@ -111,14 +128,12 @@ function catObject() {
 
 function displayCats() {
   for (let cats of arrayCatsShowing) {
-    push();
-    imageMode(CENTER);
     image(
       catArray[randomNumberCats],
       cats.catPositionX,
       cats.catPositionY,
-      120 * cats.catSizing,
-      90 * cats.catSizing
+      80 * cats.catSizing,
+      100 * cats.catSizing
     );
     cats.catSizing = cats.catSizing + 0.008;
     cats.catPositionY = cats.catPositionY + 0.4;
@@ -131,7 +146,6 @@ function displayCats() {
     if (cats.catPositionY + catHeight >= 550) {
       arrayCatsShowing.shift();
     }
-    pop();
   }
 }
 
@@ -162,14 +176,12 @@ function powerUpObject() {
 
 function displayObjects() {
   for (let objects of arrayObjectsShowing) {
-    push();
-    imageMode(CENTER);
     image(
       powerUpArray[randomNumberObjects],
       objects.objectPositionX,
       objects.objectPositionY,
-      90 * objects.objectSizing,
-      60 * objects.objectSizing
+      20 * objects.objectSizing,
+      30 * objects.objectSizing
     );
     objects.objectSizing = objects.objectSizing + 0.008;
     objects.objectPositionY = objects.objectPositionY + 0.5;
@@ -182,26 +194,16 @@ function displayObjects() {
     if (objects.objectPositionY + objectHeight >= 550) {
       arrayObjectsShowing.shift();
     }
-
-    pop();
   }
 }
 
 let characterMouseHeight = 90;
-let characterMouseWidth = 100;
-let catWidth = 100;
-let catHeight = 100;
+let characterMouseWidth = 80;
+let catWidth = 80;
+let catHeight = 140;
 
 function catCollision() {
   for (let cats of arrayCatsShowing) {
-    noFill();
-    rect(characterMouseX, characterMouseY, 100, 90);
-    rect(
-      cats.catPositionX,
-      cats.catPositionY,
-      100 * cats.catSizing,
-      100 * cats.catSizing
-    );
     if (
       characterMouseX < cats.catPositionX + catWidth &&
       characterMouseX + characterMouseWidth > cats.catPositionX
@@ -211,8 +213,7 @@ function catCollision() {
         image(catGotYou, 0, 0, 800, 600);
         arrayCatsShowing = [];
         arrayObjectsShowing = [];
-        console.log(characterMouseX);
-        console.log(cats.catPositionX);
+        sentence = 0;
       }
     }
   }
@@ -224,13 +225,6 @@ let objectHeight = 80;
 
 function powerUpCollision(objects) {
   for (let objects of arrayObjectsShowing) {
-    noFill();
-    rect(
-      objects.objectPositionX,
-      objects.objectPositionY,
-      80 * objects.objectSizing,
-      80 * objects.objectSizing
-    );
     if (
       objects.objectPositionX + objectWidth - 20 >= characterMouseX &&
       objects.objectPositionX <= characterMouseX + characterMouseWidth
@@ -246,6 +240,7 @@ function powerUpCollision(objects) {
 
 function powerUpCaught() {
   if (powerUpCollided === true) {
+    sentence = sentence + 1;
     powerUpCollided = false;
   }
 }
