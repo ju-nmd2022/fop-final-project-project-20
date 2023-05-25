@@ -37,7 +37,7 @@ function preload() {
 function setup() {
   createCanvas(800, 600);
 }
-let gameIsActive = false;
+let gameIsActive = "start"
 
 
 const catArray = [catStanding, catSitting, catLaying];
@@ -45,7 +45,7 @@ const powerUpArray = [cheeseBite, magicPotion];
 
 function mousePressed() {
   if (mouseX > 140 && mouseX < 390 && mouseY > 270 && mouseY < 360) {
-    gameIsActive = true;
+    gameIsActive = "active";
     characterMouseX = 350;
   }
 }
@@ -54,9 +54,11 @@ let characterMouseX = 350;
 let characterMouseY = 500;
 
 function draw() {
-  image(startScreen, 0, 0, 800, 600);
+  if (gameIsActive === "start"){
+    image(startScreen, 0, 0, 800, 600);
+  }
 
-  if (gameIsActive === true) {
+  if (gameIsActive === "active") {
     image(scenary, 0, 0, 800, 600);
     image(mouse, characterMouseX, characterMouseY, charachterMouseWidth, charachterMouseHeight);
 
@@ -68,7 +70,7 @@ function draw() {
     }
 
     if (characterMouseX > 720 || characterMouseX < -40) {
-      gameIsActive = false;
+      gameIsActive = "fail1";
       image(hitTheWall, 0, 0, 800, 600);
     }
 
@@ -151,7 +153,7 @@ function objectsDisplayed() {
 
 let charachterMouseHeight = 90;
 let charachterMouseWidth = 120;
-let catWidth = 120;
+let catWidth = 110;
 let catHeight = 130;
 
 function catCollision(catArray, mouse) {
@@ -159,7 +161,7 @@ function catCollision(catArray, mouse) {
     catX + catWidth >= characterMouseX &&
     catX <= characterMouseX + charachterMouseWidth) {
       if (catY + catHeight >= characterMouseY) {
-      gameIsActive = false;
+      gameIsActive = "fail2";
       image(hitTheWall, 0, 0, 800, 600);
     }
   }
