@@ -121,7 +121,7 @@ function catObject() {
     catPositionY: catY,
     catSizing: catSize,
   };
-  // console.log(cats);
+
   arrayCatsShowing.push(cats);
   randomNumberCats = Math.floor(Math.random() * 3);
 }
@@ -169,7 +169,7 @@ function powerUpObject() {
     objectPositionY: objectY,
     objectSizing: objectSize,
   };
-  // console.log(objects);
+
   arrayObjectsShowing.push(objects);
   randomNumberObjects = Math.floor(Math.random() * 2);
 }
@@ -208,7 +208,7 @@ function catCollision() {
       characterMouseX < cats.catPositionX + catWidth &&
       characterMouseX + characterMouseWidth > cats.catPositionX
     ) {
-      if (cats.catPositionY + catHeight >= characterMouseY) {
+      if (cats.catPositionY + catHeight > characterMouseY) {
         gameIsActive = "catGotYou";
         image(catGotYou, 0, 0, 800, 600);
         arrayCatsShowing = [];
@@ -223,16 +223,15 @@ let powerUpCollided = false;
 let objectWidth = 80;
 let objectHeight = 80;
 
-function powerUpCollision(objects) {
+function powerUpCollision() {
   for (let objects of arrayObjectsShowing) {
     if (
-      objects.objectPositionX + objectWidth - 20 >= characterMouseX &&
-      objects.objectPositionX <= characterMouseX + characterMouseWidth
+      objects.objectPositionX + objectWidth - 20 > characterMouseX &&
+      objects.objectPositionX < characterMouseX + characterMouseWidth
     ) {
-      if (objects.objectPositionY + objectHeight >= characterMouseY) {
+      if (objects.objectPositionY + objectHeight > characterMouseY) {
         powerUpCollided = true;
         arrayObjectsShowing.shift();
-        console.log("true");
       }
     }
   }
