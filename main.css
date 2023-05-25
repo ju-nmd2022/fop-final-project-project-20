@@ -1,0 +1,25 @@
+* {
+  font-family: sans-serif;
+  background-color: rgb(252, 208, 52);
+  color: black;
+}
+
+header {
+  text-align: center;
+  font-size: large;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.creaters {
+  text-align: right;
+  font-size: x-small;
+}
