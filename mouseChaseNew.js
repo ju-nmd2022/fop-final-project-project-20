@@ -84,8 +84,8 @@ function draw() {
     displayObjects();
     // catsDisplayed();
     displayCats();
-    catCollision();
-    powerUpCollision();
+    catCollision(arrayCatsShowing);
+    powerUpCollision(arrayObjectsShowing);
   }
 }
 
@@ -117,7 +117,7 @@ function random() {
   randomNumberCats = Math.floor(Math.random() * 3);
 }
 
-function displayCats(random) {
+function displayCats() {
   for (let cats of arrayCatsShowing) {
     image(
       catArray[randomNumberCats],
@@ -193,7 +193,7 @@ function random2() {
   randomNumberObjects = Math.floor(Math.random() * 2);
 }
 
-function displayObjects(objects) {
+function displayObjects() {
   for (let objects of arrayObjectsShowing) {
     image(
       powerUpArray[randomNumberObjects],
@@ -239,7 +239,7 @@ let charachterMouseWidth = 120;
 let catWidth = 110;
 let catHeight = 130;
 
-function catCollision() {
+function catCollision(cats) {
   if (
     catX + catWidth >= characterMouseX &&
     catX <= characterMouseX + charachterMouseWidth
@@ -255,13 +255,14 @@ let powerUpCollided = false;
 let objectWidth = 120;
 let objectHeight = 140;
 
-function powerUpCollision() {
+function powerUpCollision(objects) {
   if (
-    objectX + objectWidth >= characterMouseX &&
-    objectX <= characterMouseX + charachterMouseWidth
+    objects.objectPositionX + objectWidth >= characterMouseX &&
+    objects.objectPositionX <= characterMouseX + charachterMouseWidth
   ) {
-    if (objectY + objectHeight >= characterMouseY) {
+    if (objects.objectPositionY + objectHeight >= characterMouseY) {
       powerUpCollided = true;
+      console.log("true");
     }
   }
 }
