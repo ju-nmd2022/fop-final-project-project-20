@@ -89,11 +89,17 @@ function draw() {
 
 // a random number generator to decide on what cat to display
 setInterval(random, 8000);
+setInterval(randomX, 8000);
 
 let randomNumberCats;
+let catX;
+
+function randomX() {
+  catX = Math.floor(Math.random() * 100 + 300);
+}
 
 // // cat position when showing up
-let catX = Math.floor(Math.random() * 100 + 300);
+
 console.log(catX);
 let catY = 310;
 let catSize = 0.5;
@@ -115,7 +121,7 @@ function displayCats(random) {
     if (randomNumberCats === 0) {
       image(
         catLaying,
-        catX,
+        cats.catPositionX,
         cats.catPositionY,
         120 * cats.catSizing,
         90 * cats.catSizing
@@ -130,7 +136,7 @@ function displayCats(random) {
     } else if (randomNumberCats === 1) {
       image(
         catSitting,
-        catX,
+        cats.catPositionX,
         cats.catPositionY,
         120 * cats.catSizing,
         90 * cats.catSizing
@@ -145,7 +151,7 @@ function displayCats(random) {
     } else if (randomNumberCats === 2) {
       image(
         catStanding,
-        catX,
+        cats.catPositionX,
         cats.catPositionY,
         120 * cats.catSizing,
         90 * cats.catSizing
